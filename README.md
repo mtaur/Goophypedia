@@ -6,8 +6,8 @@
 * Runs on __Node.js__/__express.js__
 
 ## It's a sequel!
-https://github.com/mtaur/Goophy
-This page will explain the image scraping technique.
+### Goophy + Wikipedia = Goophypedia
+This page will explain the image scraping technique and the meaning of "Goophy": https://github.com/mtaur/Goophy
 
 ## Good luck deploying this to a Heroku server
 Seriously, Heroku doesn't support npm Nightmare or Electron in general.  If you can get it to work, I'd be glad to hear about it! mothwentbad@gmail.com
