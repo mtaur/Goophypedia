@@ -2,7 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 
 // Require schemas
 var Image = require("./models/Image");
@@ -34,16 +34,16 @@ app.use(express.static("public"));
     // localhost...
 //mongoose.connect("mongodb://localhost/goophy-x001");
 //mongoose.connect("mongodb://localhost/week18day3mongoose");
-mongoose.connect("mongodb://heroku_9dnr272d:eqcj56l2npni9ute2k3sfcjdp8@ds037272.mlab.com:37272/heroku_9dnr272d");
-var db = mongoose.connection;
+// mongoose.connect("mongodb://heroku_9dnr272d:eqcj56l2npni9ute2k3sfcjdp8@ds037272.mlab.com:37272/heroku_9dnr272d");
+// var db = mongoose.connection;
 
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
+// db.on("error", function(err) {
+  // console.log("Mongoose Error: ", err);
+// });
 
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
+// db.once("open", function() {
+  // console.log("Mongoose connection successful.");
+// });
 
 
 //var images = [];
@@ -128,10 +128,16 @@ app.post("/imgapi", function(req, res) {
 //    console.log(req.body.stateFcn);
     var images=[];
 //    res.send([{title:'bullshit',link:'http://www.damnit.com/blah.gif'}]);
-    gooScrape(req.body.searchStr,4,
+    gooScrape(req.body.searchStr, 4,
             function(item)
                 {
-                    images.push( {title:'(title)', link: item} ) ;
+                    if (typeof item == 'string') {
+                      console.log('pushed:', item);
+                      images.push( {title:'(title)', link: item} ) ;
+                    }
+                    else {
+                      console.log('Keep looking...');
+                    }
 //                    req.body.stateFcn(images);
 //                    helpers.update.main(images);
                 }

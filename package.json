@@ -12,7 +12,7 @@
   "author": "Matt Bond",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.12.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.15.2",
     "cheerio": "^0.20.0",
     "express": "^4.14.0",
